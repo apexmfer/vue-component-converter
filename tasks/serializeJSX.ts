@@ -8,8 +8,7 @@ import { serialize, deserialize } from "react-serialize"
  
 
 export async function serializeJSX(args:string[]): Promise<any> {
-
-  console.log('boo', args)
+ 
 
   let fileName = args[1]
 
@@ -24,7 +23,7 @@ export async function serializeJSX(args:string[]): Promise<any> {
 
   let htmlSection = sectionalized['html'].content
 
-  htmlSection = htmlSection. replace(/(\r\n|\n|\r)/gm, "");
+ // htmlSection = htmlSection. replace(/(\r\n|\n|\r)/gm, "");
 
 
   htmlSection = htmlSection.replace(/({|})/gm,"")
@@ -52,6 +51,10 @@ export async function serializeJSX(args:string[]): Promise<any> {
 
 
   console.log({htmlSection})
+
+
+  FileHelper.writeLocalFile(`./outputs/${fileName}`,htmlSection)
+
   
  
   //inputData.lenderAddress = "0xF4dAb24C52b51cB69Ab62cDE672D3c9Df0B39681"

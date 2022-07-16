@@ -39,6 +39,18 @@ export default class FileHelper{
         }
        
     }
+
+    static writeLocalFile(path:string,body:string){
+
+
+
+      try {
+        fs.writeFileSync(path,  (body) );
+      } catch (err) {
+        console.error(err);
+      }
+
+    }
     
    
 
